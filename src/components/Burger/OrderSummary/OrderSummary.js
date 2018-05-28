@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./OrderSummary.css";
 
+import Button from "../../UI/Button/Button";
+
 const orderSummary = props => {
   const ingredientSummary = Object.keys(props.ingredients).map(ingKey => (
     <li key={ingKey} className={classes.Capitalized}>
@@ -13,6 +15,12 @@ const orderSummary = props => {
       <p>A delicious burger with following ingredients :</p>
       <ul>{ingredientSummary}</ul>
       <p>Continue to checkout ?</p>
+      <Button clicked={props.purchaseCancelled} btnType="Danger">
+        CANCEL
+      </Button>
+      <Button clicked={props.purchaseContinued} btnType="Success">
+        CONTINUE
+      </Button>
     </React.Fragment>
   );
 };
